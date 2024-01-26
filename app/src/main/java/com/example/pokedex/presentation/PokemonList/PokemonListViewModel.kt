@@ -15,6 +15,7 @@ import androidx.palette.graphics.Palette
 import com.example.pokedex.data.network.PokemonRemoteMediator
 import com.example.pokedex.data.repositories.PokemonRepository
 import com.example.pokedex.domain.mappers.PokemonMapper.toPokemon
+import com.example.pokedex.util.Constants.PAGE_SIZE
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -39,8 +40,10 @@ class PokemonListViewModel @Inject constructor(
     @OptIn(ExperimentalPagingApi::class)
     val pokemonPager = Pager(
         config = PagingConfig(
-            pageSize = 20,
-            enablePlaceholders = false
+            pageSize = PAGE_SIZE,
+            enablePlaceholders = true,
+            prefetchDistance = 3 * PAGE_SIZE,
+            initialLoadSize = 2 * PAGE_SIZE,
         ),
         remoteMediator = remoteMediator,
         pagingSourceFactory = {
@@ -51,7 +54,6 @@ class PokemonListViewModel @Inject constructor(
             pagingData.map { it.toPokemon() }
         }
         .cachedIn(viewModelScope)
-        .flowOn(Dispatchers.IO)
 
     fun calcDominantColor(drawable: Drawable, onFinish: (Color) -> Unit) {
         val bmp = (drawable as BitmapDrawable).bitmap.copy(Bitmap.Config.ARGB_8888, true)

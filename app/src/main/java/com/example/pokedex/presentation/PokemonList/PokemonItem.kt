@@ -28,14 +28,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import coil.compose.AsyncImage
 import coil.compose.SubcomposeAsyncImage
 import com.example.pokedex.domain.models.Pokemon
 
 @Composable
 fun PokemonItem(
-    pokemon: Pokemon,
-    viewModel: PokemonListViewModel,
     modifier: Modifier = Modifier,
+    pokemon: Pokemon,
+    viewModel: PokemonListViewModel = hiltViewModel(),
 ) {
     val defaultDominantColor = MaterialTheme.colorScheme.surfaceVariant
     val dominantColor = remember { mutableStateOf(defaultDominantColor)}

@@ -9,6 +9,7 @@ import com.example.pokedex.data.local.PokemonDatabase
 import com.example.pokedex.data.local.PokemonEntity
 import com.example.pokedex.data.local.RemoteKeys
 import com.example.pokedex.domain.mappers.PokemonMapper.toPokemonEntity
+import com.example.pokedex.util.Constants.PAGE_SIZE
 import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
@@ -24,7 +25,7 @@ class PokemonRemoteMediator @Inject constructor(
         state: PagingState<Int, PokemonEntity>
     ): MediatorResult {
 
-        val limit = 20
+        val limit = PAGE_SIZE
         val initialPage = 0
 
         val page = when (loadType) {

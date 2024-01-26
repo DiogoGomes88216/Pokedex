@@ -26,7 +26,6 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -46,7 +45,7 @@ fun PokemonListScreen(
 
   Column(
     modifier = Modifier.fillMaxSize(),
-    verticalArrangement = Arrangement.Center
+    verticalArrangement = Arrangement.Center,
   ) {
     if (pokemonList.loadState.refresh == LoadState.Loading) {
       CircularProgressIndicator(
@@ -80,18 +79,17 @@ fun PokemonListScreen(
         columns = GridCells.Fixed(2),
         verticalArrangement = Arrangement.spacedBy(16.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
-        contentPadding = PaddingValues(12.dp)
+        contentPadding = PaddingValues(12.dp),
       ){
         items(
           count = pokemonList.itemCount,
           key = {
-            pokemonList[it]?.name ?: UUID.randomUUID()
+            pokemonList[it]?.name ?: it
           }
         ){item ->
           pokemonList[item]?.let {
             PokemonItem(
               pokemon = it,
-              viewModel = viewModel,
               modifier = Modifier
                 .clickable{
                   pokemonList[item]?.let { pokemon -> onNavigateToDetails(pokemon.name) }
