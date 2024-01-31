@@ -1,5 +1,6 @@
 package com.example.pokedex.presentation.PokemonInfo
 
+import androidx.compose.ui.graphics.Color
 import com.example.pokedex.domain.models.PokemonInfo
 
 
@@ -11,6 +12,9 @@ data class PokemonInfoState(
         height = 0,
         weight = 0,
         imageUrl = "",
+        stats = emptyList(),
+        types = emptyList(),
     ),
+    val dominantColor: Color = Color.Black,
     val hasError: Boolean = false
 )

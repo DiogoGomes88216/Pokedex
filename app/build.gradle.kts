@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-android")
     id("kotlin-kapt")
+    //id("com.google.devtools.ksp")
     id("dagger.hilt.android.plugin")
 }
 
@@ -23,7 +24,7 @@ val hiltVersion = "2.50"
 
 val lifecycleVersion = "2.6.2"
 
-val roomVersion = "2.4.0"
+val roomVersion = "2.6.1"
 
 val retrofitVersion = "2.9.0"
 val okhttpVersion = "4.11.0"
@@ -43,7 +44,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.diogopokemon"
-        minSdk = 26
+        minSdk = 29
         versionCode = 1
         versionName = "1.0"
 
@@ -118,6 +119,7 @@ dependencies {
     implementation("androidx.room:room-ktx:$roomVersion")
     implementation("androidx.room:room-paging:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
+    //ksp("androidx.room:room-compiler:$roomVersion")
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
@@ -145,6 +147,5 @@ dependencies {
     androidTestImplementation("androidx.test:runner:$androidxTestRunnerVersion")
     androidTestImplementation("androidx.test.ext:junit:$androidxTestExtJUnitVersion")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$composeVersion")
-
 
 }

@@ -2,7 +2,6 @@ package com.example.pokedex.presentation.PokemonList
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -32,12 +31,11 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.diogopokemon.R
-import java.util.UUID
 
 @Composable
 fun PokemonListScreen(
   viewModel: PokemonListViewModel = hiltViewModel(),
-  onNavigateToDetails: (String) -> Unit
+  onNavigateToDetails: (String, Int) -> Unit
 ) {
   val uiState by viewModel.pokemonListState.collectAsState()
 
@@ -90,10 +88,8 @@ fun PokemonListScreen(
           pokemonList[item]?.let {
             PokemonItem(
               pokemon = it,
+              onNavigateToDetails = onNavigateToDetails,
               modifier = Modifier
-                .clickable{
-                  pokemonList[item]?.let { pokemon -> onNavigateToDetails(pokemon.name) }
-              }
             )
           }
         }

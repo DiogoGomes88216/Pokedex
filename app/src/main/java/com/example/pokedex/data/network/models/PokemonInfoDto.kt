@@ -39,9 +39,9 @@ data class PokemonInfoDto(
     @SerializedName("sprites")
     val sprites: Sprites,
     @SerializedName("stats")
-    val stats: List<Stat>,
+    val stats: List<StatDto>,
     @SerializedName("types")
-    val types: List<Type>,
+    val types: List<TypeDto>,
     @SerializedName("weight")
     val weight: Int
 )

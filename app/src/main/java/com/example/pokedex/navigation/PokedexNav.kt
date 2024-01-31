@@ -16,8 +16,8 @@ fun PokedexNav() {
     NavHost(navController, startDestination = Screens.PokemonList.route) {
         composable(route = Screens.PokemonList.route) {
             PokemonListScreen(
-                onNavigateToDetails = { name ->
-                    navController.navigate(Screens.PokemonInfo.createRoute(name = name))
+                onNavigateToDetails = { name, color ->
+                    navController.navigate(Screens.PokemonInfo.createRoute(name = name, color = color))
                 }
             )
         }

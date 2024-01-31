@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import androidx.annotation.Keep
 
 @Keep
-data class TypeX(
+data class StatDetailDto(
     @SerializedName("name")
     val name: String,
     @SerializedName("url")

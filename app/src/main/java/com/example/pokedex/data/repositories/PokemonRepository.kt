@@ -7,6 +7,8 @@ import com.example.pokedex.data.local.PokemonEntity
 import com.example.pokedex.data.network.PokemonApi
 import com.example.pokedex.domain.mappers.PokemonInfoMapper.toPokemonInfo
 import com.example.pokedex.domain.mappers.PokemonInfoMapper.toPokemonInfoEntity
+import com.example.pokedex.domain.mappers.PokemonInfoMapper.toStatEntity
+import com.example.pokedex.domain.mappers.PokemonInfoMapper.toTypeEntity
 import com.example.pokedex.domain.mappers.PokemonMapper.toPokemon
 import com.example.pokedex.domain.models.Pokemon
 import com.example.pokedex.domain.models.PokemonInfo
@@ -42,18 +44,22 @@ class PokemonRepository @Inject constructor(
 
     suspend fun getPokemonInfoByName(name: String): Result<PokemonInfo> {
 
-         dao.getPokemonInfo(name)?.let {
-            return Result.success(it.toPokemonInfo())
+        val dbResult = dao.getPokemonInfoWithTypesAndStatsByName(name)
+        dbResult?.let {
+            return Result.success( it.toPokemonInfo() )
         }
 
         return try {
             val response = api.getPokemonInfoByName(name = name)
             val imageUrl = getImageUrl(response.id.toString())
 
-            dao.insertPokemonInfoEntity(
-                response.toPokemonInfoEntity(imageUrl = imageUrl)
+            dao.insertPokemonInfoWithTypesAndStats(
+                basicInfo = response.toPokemonInfoEntity(imageUrl = imageUrl),
+                stats = response.stats.map { it.toStatEntity(response.id) },
+                types = response.types.map { it.toTypeEntity(response.id) }
             )
             Result.success(response.toPokemonInfo(imageUrl = imageUrl))
+
         } catch (ex: Exception) {
             Result.failure(ex)
         }

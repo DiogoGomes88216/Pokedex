@@ -1,5 +1,6 @@
 package com.example.pokedex.presentation.PokemonInfo
 
+import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -20,6 +21,7 @@ class PokemonInfoViewModel @Inject constructor(
     private val _pokemonInfoState = MutableStateFlow(PokemonInfoState())
     val pokemonInfoState: StateFlow<PokemonInfoState> by lazy {
         getPokemonInfoByName()
+        _pokemonInfoState.update { it.copy(dominantColor = Color(requireNotNull(stateHandle.get<String>("color")?.toInt())))}
         _pokemonInfoState
     }
 

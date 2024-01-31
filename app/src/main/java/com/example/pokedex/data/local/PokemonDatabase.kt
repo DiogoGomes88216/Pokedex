@@ -8,6 +8,8 @@ import androidx.room.RoomDatabase
         PokemonEntity::class,
         RemoteKeys::class,
         PokemonInfoEntity::class,
+        StatEntity::class,
+        TypeEntity::class,
    ],
     version = 1
 )
