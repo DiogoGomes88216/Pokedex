@@ -27,7 +27,7 @@ class PokemonInfoViewModel @Inject constructor(
 
     private val name by lazy { requireNotNull(stateHandle.get<String>("name")) }
 
-    private fun getPokemonInfoByName() {
+    fun getPokemonInfoByName() {
         viewModelScope.launch {
             repository.getPokemonInfoByName(name = name)
                 .onSuccess { info ->
@@ -35,9 +35,9 @@ class PokemonInfoViewModel @Inject constructor(
                         it.copy(info = info, isLoading = false, hasError = false)
                     }
                 }
-                .onFailure {
+                .onFailure {ex ->
                     _pokemonInfoState.update {
-                        it.copy(isLoading = false, hasError = true)
+                        it.copy(isLoading = false, hasError = true, error = ex)
                     }
                 }
         }

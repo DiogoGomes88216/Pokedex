@@ -16,5 +16,6 @@ data class PokemonInfoState(
         types = emptyList(),
     ),
     val dominantColor: Color = Color.Black,
-    val hasError: Boolean = false
+    val hasError: Boolean = false,
+    val error: Throwable? = null,
 )

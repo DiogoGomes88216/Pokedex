@@ -9,7 +9,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-@Module
+/*@Module
 @InstallIn(SingletonComponent::class)
 class RepoModule {
 
@@ -24,4 +24,4 @@ class RepoModule {
             db = db,
         )
     }
-}
+}*/
