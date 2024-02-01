@@ -1,4 +1,5 @@
-![SreensCombined](https://github.com/DiogoGomes88216/Pokedex/assets/51420877/f863febd-6796-415b-99b0-93965590e3be)
+
+![screensCombined](https://github.com/DiogoGomes88216/Pokedex/assets/51420877/666d63b4-866b-4a4d-9068-34c940b2fd18)
 
 
 
