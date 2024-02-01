@@ -1,4 +1,4 @@
-package com.example.pokedex.presentation.PokemonList
+package com.example.pokedex.presentation.pokemonList
 
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
@@ -17,10 +17,8 @@ import com.example.pokedex.data.repositories.PokemonRepository
 import com.example.pokedex.domain.mappers.PokemonMapper.toPokemon
 import com.example.pokedex.util.Constants.PAGE_SIZE
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 

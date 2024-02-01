@@ -8,10 +8,10 @@ plugins {
 }
 
 val activityComposeVersion = "1.8.2"
-val composeVersion = "1.5.4"
-val coilVersion = "2.2.2"
+val composeVersion = "1.6.0"
+val coilVersion = "2.5.0"
 val coreVersion = "1.12.0"
-val pagingVersion = "3.1.1"
+val pagingVersion = "3.2.1"
 val pagingComposeVersion = "1.0.0-alpha16"
 val navComposeVersion = "2.7.6"
 val accompanistVersion = "0.18.0"
@@ -22,20 +22,20 @@ val koinVersion = "3.1.2"
 val hiltJetpackVersion = "1.1.0"
 val hiltVersion = "2.50"
 
-val lifecycleVersion = "2.6.2"
+val lifecycleVersion = "2.7.0"
 
 val roomVersion = "2.6.1"
 
 val retrofitVersion = "2.9.0"
-val okhttpVersion = "4.11.0"
+val okhttpVersion = "4.12.0"
 
 val junitVersion = "4.13.2"
 val truthVersion = "1.1.3"
-val androidxTestCoreVersion = "1.4.0"
-val androidxTestRunnerVersion = "1.4.0"
-val androidxTestExtJUnitVersion = "1.1.3"
-val coreTestingVersion = "2.1.0"
-val coroutinesVersion = "1.5.2"
+val androidxTestCoreVersion = "1.5.0"
+val androidxTestRunnerVersion = "1.5.2"
+val androidxTestExtJUnitVersion = "1.1.5"
+val coreTestingVersion = "2.2.0"
+val coroutinesVersion = "1.7.3"
 val robolectricVersion = "4.6.1"
 
 android {
@@ -75,7 +75,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.2"
+        kotlinCompilerExtensionVersion = "1.5.8"
     }
     packaging {
         resources {
@@ -86,8 +86,7 @@ android {
 
 dependencies {
     // Compose dependencies
-    implementation("androidx.compose.material3:material3:1.1.2")
-
+    implementation("androidx.compose.material3:material3:1.2.0-rc01")
     implementation("androidx.activity:activity-compose:$activityComposeVersion")
     implementation("androidx.compose.ui:ui:$composeVersion")
     implementation("androidx.compose.material:material:$composeVersion")
@@ -95,7 +94,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview:$composeVersion")
     implementation("io.coil-kt:coil-compose:$coilVersion")
     implementation("androidx.core:core-ktx:$coreVersion")
-    implementation("androidx.paging:paging-runtime:$pagingVersion")
+    implementation("androidx.paging:paging-runtime-ktx:$pagingVersion")
     implementation("androidx.paging:paging-compose:$pagingComposeVersion")
     implementation("androidx.navigation:navigation-compose:$navComposeVersion")
     implementation("com.google.accompanist:accompanist-insets-ui:$accompanistVersion")
@@ -105,7 +104,7 @@ dependencies {
     implementation("androidx.hilt:hilt-work:$hiltJetpackVersion")
     implementation("androidx.hilt:hilt-navigation-compose:$hiltJetpackVersion")
     implementation("androidx.palette:palette-ktx:1.0.0")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.5.4")
+    debugImplementation("androidx.compose.ui:ui-tooling:1.6.0")
     kapt("androidx.hilt:hilt-compiler:$hiltJetpackVersion")
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")

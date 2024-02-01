@@ -7,8 +7,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.diogopokemon.navigation.Screens
-import com.example.pokedex.presentation.PokemonInfo.PokemonInfoScreen
-import com.example.pokedex.presentation.PokemonList.PokemonListScreen
+import com.example.pokedex.presentation.pokemonInfo.PokemonInfoScreen
+import com.example.pokedex.presentation.pokemonList.PokemonListScreen
 
 @Composable
 fun PokedexNav() {

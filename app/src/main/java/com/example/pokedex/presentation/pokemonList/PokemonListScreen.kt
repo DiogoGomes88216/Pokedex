@@ -1,4 +1,4 @@
-package com.example.pokedex.presentation.PokemonList
+package com.example.pokedex.presentation.pokemonList
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -16,8 +16,6 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -37,7 +35,7 @@ fun PokemonListScreen(
   viewModel: PokemonListViewModel = hiltViewModel(),
   onNavigateToDetails: (String, Int) -> Unit
 ) {
-  val uiState by viewModel.pokemonListState.collectAsState()
+  //val uiState by viewModel.pokemonListState.collectAsState()
 
   val pokemonList = viewModel.pokemonPager.collectAsLazyPagingItems()
 
@@ -72,7 +70,6 @@ fun PokemonListScreen(
           modifier = Modifier.align(Alignment.CenterVertically)
         )
       }
-
       LazyVerticalGrid(
         columns = GridCells.Fixed(2),
         verticalArrangement = Arrangement.spacedBy(16.dp),

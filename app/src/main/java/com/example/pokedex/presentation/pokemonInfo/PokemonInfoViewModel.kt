@@ -1,4 +1,4 @@
-package com.example.pokedex.presentation.PokemonInfo
+package com.example.pokedex.presentation.pokemonInfo
 
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.SavedStateHandle
