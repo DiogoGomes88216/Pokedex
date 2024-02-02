@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import com.example.pokedex.data.local.PokemonDatabase
 import com.example.pokedex.data.network.PokemonApi
-import com.example.pokedex.data.network.PokemonRemoteMediator
+import com.example.pokedex.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -42,9 +42,5 @@ class AppModule {
             PokemonDatabase::class.java,
             "pokemondb.db"
         ).build()
-    }
-
-    companion object{
-        const val BASE_URL = "https://pokeapi.co/api/"
     }
 }

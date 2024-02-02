@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class RemoteKeys(
+data class RemoteKeys (
     @PrimaryKey val name: String,
     val prevKey: Int?,
     val nextKey: Int?

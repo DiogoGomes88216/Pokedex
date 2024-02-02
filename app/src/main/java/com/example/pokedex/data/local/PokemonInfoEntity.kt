@@ -17,6 +17,7 @@ data class PokemonInfoEntity(
 data class PokemonInfoWithTypesAndStats(
 
     @Embedded val basicInfo: PokemonInfoEntity,
+
     @Relation(
         parentColumn = "id",
         entityColumn = "pokemonId"
